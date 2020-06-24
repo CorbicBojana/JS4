@@ -35,6 +35,14 @@ module.exports = function(grunt) {
         }
       },
 
+      uglify: {
+        build: {
+          files: {
+            "dist/js/main.min.js": "app/js/main.js"
+          }
+        }
+      },
+
       watch: {
         css: {
           files: ["**/*.scss"],
@@ -46,7 +54,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-imagemin");
     grunt.loadNpmTasks("grunt-sass");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.registerTask("imagemin", ["imagemin"]);
-    grunt.registerTask("default", ["sass", "cssmin", "watch"]);
+    grunt.registerTask("default", ["sass", "cssmin", "uglify", "watch"]);
   };
